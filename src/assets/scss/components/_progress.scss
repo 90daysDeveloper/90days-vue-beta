@@ -1,0 +1,11 @@
+.progress {
+	width: 100%;
+	background-color: var(--purple);
+	height: 7px;
+	border-radius: 0px;
+	& .in {
+		width: 0%;
+		background-color: var(--yellow);
+		height: 7px;
+	}
+}

@@ -1,0 +1,10 @@
+.canny {
+	.alert-warning {
+		background-color: var(--yellow);
+		border-color: var(--dark-yellow);
+		color: var(--black);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}

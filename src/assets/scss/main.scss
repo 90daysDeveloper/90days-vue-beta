@@ -1,0 +1,38 @@
+// Generale
+@import "./generale/app";
+@import "./generale/variabili";
+@import "./generale/generale";
+@import "./generale/form";
+@import "./generale/update";
+@import "./generale/override";
+
+// Pagine
+//LOGIN & REGISTER
+@import "./pagine/login-register/login-register";
+@import "./pagine/register/register";
+// PROFILO
+@import "./pagine/profilo/profilo";
+@import "./pagine/profilo/percorso";
+// NOTIFICHE
+@import "./pagine/profilo/notifiche/canny";
+@import "./pagine/profilo/notifiche/recapweek";
+@import "./pagine/profilo/notifiche/orari";
+// DIARIO
+@import "./pagine/diario/diario";
+// HABIT
+@import "./pagine/habit/habit";
+// MASTERGROUP
+@import "./pagine/mastergroup/mastergroup";
+@import "./pagine/mastergroup/group";
+@import "./pagine/mastergroup/message";
+// ACCOUNT
+@import "./pagine/account/account";
+
+// Layouts
+@import "./layout/footer";
+@import "./layout/header";
+@import "./layout/navigation";
+
+// Components
+@import "./components/progress";
+@import "./components//graph";

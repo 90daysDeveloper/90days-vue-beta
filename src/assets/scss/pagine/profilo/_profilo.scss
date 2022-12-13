@@ -1,0 +1,47 @@
+.profilo {
+	h1 {
+		margin-bottom: 0px;
+	}
+	.account {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		&-link {
+			cursor: pointer;
+			opacity: 0.3;
+			color: white;
+			text-decoration: none;
+		}
+	}
+	.informazioni {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.annulla {
+		color: var(--white);
+		cursor: pointer;
+	}
+	.alert {
+		background-color: rgba(0,0,0,0);
+		border: solid 2px var(--purple);
+		margin-top: 20px;
+	}
+	.level {
+		h4 {
+			display: flex;
+			align-items: center;
+			i {
+				margin-left: 10px;
+				opacity: 0.3;
+				cursor: pointer;
+			}
+		}
+		em {
+			opacity: 0.6;
+		}
+	}
+	.loading {
+		padding: 30px;
+	}
+}

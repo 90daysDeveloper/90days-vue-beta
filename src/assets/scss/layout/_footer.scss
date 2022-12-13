@@ -1,0 +1,15 @@
+.footer {
+	margin-bottom: 0px;
+	padding: 20px;
+	font-size: 0.875rem;
+	color: var(--dark-light) !important;
+	background-color: var(--black);
+	width: 100%;
+	text-align: center;
+	& .mobile {
+			display: none;
+			@media (max-width: 768px) {
+				display: block;
+			}
+		}
+}

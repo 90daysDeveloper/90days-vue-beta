@@ -1,0 +1,51 @@
+.form {
+	&-group {
+		width: 100%;
+		margin-bottom: 5px;
+
+		& .form-label {
+			margin-bottom: 15px;
+		}
+
+		& .form-control,
+		& .form-select {
+			margin-top: -10px;
+			width: 100%;
+			min-height: 50px;
+			border: 0px;
+			box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
+			padding: 10px;
+
+			&::placeholder {
+				color: var(--placeholder-form);
+				opacity: 1;
+			}
+
+			&:-ms-input-placeholder {
+				color: var(--placeholder-form);
+			}
+
+			&::-ms-input-placeholder {
+				color: var(--placeholder-form);
+			}
+		}
+
+		&.password {
+			position: relative;
+
+			& .hidden {
+				color: var(--placeholder-form);
+				position: absolute;
+				top: 43px;
+				right: 15px;
+			}
+		}
+	}
+	&-check {
+		&-input[type=checkbox] {
+			margin-top: 2px;
+			border: none;
+			box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
+		}
+	}
+}

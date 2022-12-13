@@ -1,0 +1,58 @@
+.diario {
+	padding-top: 20px;
+	padding-bottom: 50px;
+	& .card-body {
+		background-color: var(--dark-medium);
+		& .text-muted {
+			color: var(--dark-light);
+		}
+		.read {
+			display: flex;
+			justify-content: flex-end;
+		}
+	}
+	& .data {
+		color: var(--dark-light);
+	}
+	& .single {
+		cursor: pointer;
+	}
+	& .annulla {
+		color: var(--white);
+		cursor: pointer;
+		margin-right: 10px;
+		@media (max-width: 768px) {
+			margin-bottom: 10px;
+			text-align: center;
+		}
+	}
+	& .addPage {
+		@media (max-width: 1000px) {
+			position: fixed;
+			bottom: 77px;
+			width: 90%;
+			left: 5%;
+			z-index: 9;
+		}
+	}
+	& .alert {
+		& button,
+		& button:hover,
+		& button:active {
+			color: var(--bs-alert-color);
+			border-color: var(--bs-alert-color);
+			background-color: rgba(0,0,0,0);
+		}
+		@media (max-width: 1000px) {
+			padding: 10px;
+		}
+	}
+	.nav-link {
+		color: var(--white);
+		margin-right: 5px;
+		&.active {
+			color: var(--black);
+			background-color: var(--white);
+		}
+	}
+}

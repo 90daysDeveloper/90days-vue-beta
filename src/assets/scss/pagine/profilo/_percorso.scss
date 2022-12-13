@@ -1,0 +1,27 @@
+.percorso {
+	.card-body {
+		cursor: pointer;
+		background-color: var(--white) !important;
+		color: var(--black);
+		border-radius: 0.385em;
+		.read {
+			display: flex;
+			justify-content: flex-end;
+		}
+	}
+	& .istruction {
+		&-desktop {
+			@media (max-width: 768px) {
+				display: none;
+			}
+		}
+
+		&-mobile {
+			display: none;
+
+			@media (max-width: 768px) {
+				display: flex;
+			}
+		}
+	}
+}

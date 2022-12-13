@@ -1,0 +1,59 @@
+.form-group {
+	.information {
+		position: fixed;
+		max-width: 700px;
+		width: 100%;
+		display: flex;
+		background-color: var(--black);
+		padding: 20px 0px;
+		margin-top: -20px;
+		@media (max-width: 768px) {
+			max-width: calc(100% - 50px);
+			flex-direction: column;
+			align-items: center;
+			margin-top: -20px;
+		}
+		.btn {
+			width: 100%;
+			&.btn-primary {
+				&.info {
+					background-color: var(--black);
+					border: solid 1px var(--white);
+					color: var(--white);
+					border-radius: 0.375rem 0rem 0rem 0.375rem;
+					@media (max-width: 768px) {
+					border-radius: 0.375rem 0.375rem 0rem 0rem;
+					a {
+						color: var(--white);
+					}
+					}
+				}
+				&.meet {
+					background-color: var(--yellow);
+					border: solid 1px var(--dark-yellow);
+					color: var(--black);
+					border-radius: 0rem 0.375rem 0.375rem 0rem;
+					@media (max-width: 768px) {
+						border-radius:0rem 0rem  0.375rem  0.375rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+.utenti {
+	.singolo {
+		border: solid 2px var(--purple);
+		border-radius: 0.375rem;
+		padding: 10px;
+		margin: 10px;
+		text-align: center;
+		width: calc(50% - 20px);
+		cursor: pointer;
+		float: left;
+		@media (max-width: 768px) {
+			width:calc(100% - 20px);
+		}
+	}
+}

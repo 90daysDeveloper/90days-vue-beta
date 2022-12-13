@@ -1,0 +1,22 @@
+.core {
+	& .desktop {
+		@media (max-width: 1000px) {
+			display: none;
+		}
+	}
+	& .mobile {
+		display: none;
+		@media (max-width: 1000px) {
+			display: block;
+		}
+	}
+	& .content {
+		margin-bottom: 80px;
+		@media (max-width: 1000px) {
+			margin-top: 70px;
+		}
+		@media (max-width: 701px) {
+			margin-top: 60px;
+		}
+	}
+}

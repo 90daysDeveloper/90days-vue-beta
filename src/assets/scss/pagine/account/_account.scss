@@ -1,0 +1,17 @@
+.account {
+	.table-row {
+		display: flex;
+		border-bottom: solid 1px #e8e8e824;
+		padding: 10px;
+		@media (max-width: 500px) {
+			flex-direction: column;
+		}
+		.title-row {
+			min-width: 160px;
+		}
+	}
+	.annulla {
+		color: var(--white);
+		cursor: pointer;
+	}
+}
