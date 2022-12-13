@@ -90,10 +90,11 @@ async function newProfile() {
 // }
 // getName()
 
-const beta = ['teodor.agape@yahoo.com', 'massaroalessandro.am@gmail.com', 'andreamorellipsi@gmail.com', 'beatrice.sola06@gmail.com', 'info@alessandraloreti.it', 'lrusso750@gmail.com', 'maria.simioli.24@gmail.com', 'franceru.francesca@gmail.com', 'alicebuscemi@hotmail.it', 'antonello.calamea@gmail.com', 'romeo.tofani@live.it', 'joaoastudillo@gmail.com', 'antonella.diciancio@gmail.com', 'levabpc.dsgn@gmail.com', 'marcochiapparo@gmail.com', 'pessinamd@gmail.com', 'viviana.lagaipa@gmail.com', 'lijo.belardi@icloud.com', 'vittoriac95@icloud.com', 'civerapaola@gmail.com', 'nontrovoniente@live.com', 'gennarodigianni@gmail.com', 'cynthia94@hotmail.it', 'chiaradigirolamo1994@gmail.com', 'pizzichemidesiree@gmail.com', 'giorgiorumore@gmail.com']
+const beta = process.env.VUE_APP_BETA_USERS_LIST
+const codice_sconto = process.env.VUE_APP_CODICI_SCONTO
 
 function goTo() {
-  if (form.codice === "START2IMPACT" || form.codice === "90DAYSFIREND" || form.codice === "90DAYSDEVELOPER" || (form.codice === "BETA90DAYS" && beta.includes(authStore.userData.email))) {
+  if (beta.includes(authStore.userData.email) && codice_sconto.includes(form.codice)) {
     router.push('/register-thanks')
   } else {
     router.push('/register-payment')
