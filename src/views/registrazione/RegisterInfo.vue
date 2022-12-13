@@ -91,10 +91,12 @@ async function newProfile() {
 // getName()
 
 const beta = process.env.VUE_APP_BETA_USERS_LIST
+
 const codice_sconto = process.env.VUE_APP_CODICI_SCONTO
 
+
 function goTo() {
-  if (beta.includes(authStore.userData.email) && codice_sconto.includes(form.codice)) {
+  if (codice_sconto.includes(form.codice) || beta.includes(authStore.userData.email)) {
     router.push('/register-thanks')
   } else {
     router.push('/register-payment')
