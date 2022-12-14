@@ -72,6 +72,26 @@ const routes = [
         component: () => import("@/views/habit/HabitTracker.vue"),
       },
       {
+        path: "/scelta",
+        component: () => import("@/views/scelta/Scelta.vue"),
+      },
+      {
+        path: "/informazioni",
+        component: () => import("@/views/scelta/Informazioni.vue"),
+      },
+      {
+        path: "/informazionidue",
+        component: () => import("@/views/scelta/InformazioniDue.vue"),
+      },
+      {
+        path: "/conferma",
+        component: () => import("@/views/scelta/Conferma.vue"),
+      },
+      {
+        path: "/confermadue",
+        component: () => import("@/views/scelta/ConfermaDue.vue"),
+      },
+      {
         path: "/mastergroup",
         component: () => import("@/views/mastergroup/MasterGroup.vue"),
       },
