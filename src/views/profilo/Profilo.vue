@@ -4,6 +4,7 @@
     <RecapWeek></RecapWeek>
     <Canny></Canny>
   </div>
+  <InputText v-model="prova"></InputText>
   <Button label="mail chimp" @click="getMailChimp"></Button>
   <Informazioni :id_utente="route.params.idUtente"></Informazioni>
   <Obiettivo :id_utente="route.params.idUtente"></Obiettivo>
@@ -38,9 +39,9 @@ const API_90D = new AxiosService('directus')
 const uid_utente = authStore.DirectusUser.uid
 const id_utente = authStore.DirectusUser.id
 
-
+const prova = ref()
 function getMailChimp() {
-  axios.get('https://90days-vue-beta.vercel.app/api/handler').then(res => console.log(res))
+  axios.get('https://90days-vue-beta.vercel.app/api/handler?name=' + prova.value,).then(res => console.log(res))
 }
 
 
