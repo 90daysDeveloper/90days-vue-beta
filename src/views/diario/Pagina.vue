@@ -65,7 +65,7 @@ const view = ref(true)
 const deleteConfirm = ref(false)
 const route = useRoute()
 
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 const id_pagina = route.params.idPagina
 
 const loading = ref(false)

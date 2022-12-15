@@ -51,7 +51,7 @@ import CalendarView from './CalendarView.vue'
 const loading = ref(true)
 const authStore = useAuthStore()
 
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 const uid_utente = authStore.DirectusUser.uid
 const nome_gruppo = authStore.DirectusUser.gruppo
 

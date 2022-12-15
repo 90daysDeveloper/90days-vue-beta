@@ -34,7 +34,7 @@ import AxiosService from '@/axiosService/AxiosService';
 const loading = ref(true)
 const authStore = useAuthStore()
 
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 const nome_gruppo = authStore.DirectusUser.gruppo
 
 const difference = ref()

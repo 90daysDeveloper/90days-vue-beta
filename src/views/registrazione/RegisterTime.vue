@@ -59,7 +59,7 @@ function getDirectusUser() {
 }
 getDirectusUser()
 
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 
 const loading = ref(false)
 // const router = useRouter()

@@ -41,7 +41,7 @@ import AxiosService from '@/axiosService/AxiosService';
 
 const route = useRoute()
 
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 const id_gruppo = route.params.idGroup
 
 const loading = ref(false)

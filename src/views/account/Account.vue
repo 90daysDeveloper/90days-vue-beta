@@ -103,7 +103,7 @@ import AxiosService from '@/axiosService/AxiosService';
 import { ref } from 'vue'
 const authStore = useAuthStore();
 
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 const uid_utente = authStore.DirectusUser.uid
 
 const loading = ref(false)

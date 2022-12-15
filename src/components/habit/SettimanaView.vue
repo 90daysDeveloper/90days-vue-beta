@@ -39,7 +39,7 @@
 import { ref, watch } from 'vue'
 import AxiosService from '@/axiosService/AxiosService';
 
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 const disabilitato = ref(true)
 // eslint-disable-next-line no-undef
 const props = defineProps({

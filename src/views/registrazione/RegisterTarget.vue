@@ -59,7 +59,7 @@ const activeCategories = liteDatabase.getActiveCategories()
 const utente = ref([])
 const loading = ref(false)
 
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 const uid_utente = authStore.userData.uid
 
 const form = ref({

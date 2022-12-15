@@ -49,7 +49,7 @@ import router from '@/router'
 import AxiosService from '@/axiosService/AxiosService';
 const authStore = useAuthStore();
 
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 
 const loading = ref(false)
 

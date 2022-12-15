@@ -31,7 +31,7 @@ const authStore = useAuthStore()
 const loading = ref(false)
 const utente = ref([])
 
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 const id_utente = authStore.DirectusUser.is
 
 

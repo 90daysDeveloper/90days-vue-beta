@@ -15,7 +15,7 @@ import AxiosService from '@/axiosService/AxiosService';
 const loading = ref(false)
 const obiettivo = ref([])
 const authStore = useAuthStore()
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 const uid_utente = authStore.DirectusUser.uid
 
 async function getObiettivo() {

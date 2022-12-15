@@ -63,7 +63,7 @@ const route = useRoute()
 const loading = ref(false)
 const tappa = ref()
 
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 const id_tappa = route.params.idTappa
 
 const form = ref({

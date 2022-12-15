@@ -4,6 +4,7 @@
     <RecapWeek></RecapWeek>
     <Canny></Canny>
   </div>
+  <Button label="mail chimp" @click="getMailChimp"></Button>
   <Informazioni :id_utente="route.params.idUtente"></Informazioni>
   <Obiettivo :id_utente="route.params.idUtente"></Obiettivo>
   <Progressi v-if="authStore.DirectusUser.gruppo !== null" :id_utente="route.params.idUtente"></Progressi>
@@ -31,9 +32,18 @@ const obiettivo = ref([])
 const orari = ref([])
 const helper = ref([])
 
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 const uid_utente = authStore.DirectusUser.uid
 const id_utente = authStore.DirectusUser.id
+
+const MC_90D = new AxiosService('mailchimp')
+
+function getMailChimp() {
+  MC_90D.leggiVanilla().then(res => {
+    console.log("🚀 ~ file: Profilo.vue:42 ~ MC_90D.read ~ res", res)
+  })
+}
+getMailChimp()
 
 function getPayment() {
   loading.value = true

@@ -76,7 +76,7 @@ const utente = ref([])
 const shareLink = 'https://community.90days.it/share/' + route.params.idUtente
 const router = useRouter()
 
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 const id_utente = route.params.idUtente
 
 async function getUtente() {

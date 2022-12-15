@@ -31,7 +31,7 @@ const has_abitudine = ref()
 
 const authStore = useAuthStore()
 
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 const id_utente = authStore.DirectusUser.id
 
 function getObiettivo() {

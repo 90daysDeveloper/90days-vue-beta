@@ -35,7 +35,7 @@ import router from '@/router'
 const authStore = useAuthStore()
 const loading = ref(false)
 
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 
 var today = new Date()
 

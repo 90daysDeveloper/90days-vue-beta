@@ -18,7 +18,7 @@ function getDirectusUser() {
   authStore.getDirectusUser()
 }
 
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 const nome_gruppo = authStore.DirectusUser.gruppo
 
 getDirectusUser()

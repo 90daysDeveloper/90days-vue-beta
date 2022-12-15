@@ -27,7 +27,7 @@ const props = defineProps({
 const loading = ref(false)
 const disabilitato = ref(true)
 
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 
 // Accepts the array and key
 const groupBy = (array, key) => {

@@ -16,7 +16,7 @@ import AxiosService from '@/axiosService/AxiosService';
 const props = defineProps({
   id_utente: String,
 })
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 const loading = ref(false)
 const obiettivo = ref([])
 

@@ -32,7 +32,7 @@ const loading = ref(false)
 // HABIT
 const habit = ref()
 
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 const nome_gruppo = authStore.DirectusUser.gruppo
 
 function goTo(next) {

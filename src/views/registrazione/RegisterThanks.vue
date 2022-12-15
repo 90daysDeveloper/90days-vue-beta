@@ -51,7 +51,7 @@ const user = {
   "payment": true
 }
 
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 
 function updateUser() {
 

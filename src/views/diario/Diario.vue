@@ -61,7 +61,7 @@ function getDirectusUser() {
 }
 getDirectusUser()
 
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 const uid_utente = authStore.DirectusUser.uid
 
 const loading = ref(false)

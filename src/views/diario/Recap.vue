@@ -75,7 +75,7 @@ const route = useRoute()
 const loading = ref(false)
 const recap = ref()
 
-const API_90D = new AxiosService
+const API_90D = new AxiosService('directus')
 
 async function getRecap() {
   loading.value = true
