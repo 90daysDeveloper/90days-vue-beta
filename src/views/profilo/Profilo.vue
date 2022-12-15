@@ -41,7 +41,7 @@ const id_utente = authStore.DirectusUser.id
 
 const prova = ref()
 function getMailChimp() {
-  axios.get('https://90days-vue-beta.vercel.app/api/handler?name=' + prova.value,).then(res => console.log(res))
+  axios.get('https://90days-vue-beta.vercel.app/api/handler',).then(res => console.log(res))
 }
 
 
