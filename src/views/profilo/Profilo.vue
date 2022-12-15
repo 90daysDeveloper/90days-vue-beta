@@ -24,6 +24,8 @@ import { useRoute, useRouter } from 'vue-router'
 import AxiosService from '@/axiosService/AxiosService'
 import { ref } from 'vue'
 
+import axios from 'axios'
+
 const route = useRoute()
 const router = useRouter()
 const authStore = useAuthStore()
@@ -36,14 +38,11 @@ const API_90D = new AxiosService('directus')
 const uid_utente = authStore.DirectusUser.uid
 const id_utente = authStore.DirectusUser.id
 
-const MC_90D = new AxiosService('mailchimp')
 
 function getMailChimp() {
-  MC_90D.leggiVanilla().then(res => {
-    console.log("🚀 ~ file: Profilo.vue:42 ~ MC_90D.read ~ res", res)
-  })
+  axios.get('https://90days-vue-beta.vercel.app/api/handler').then(res => console.log(res))
 }
-getMailChimp()
+
 
 function getPayment() {
   loading.value = true
