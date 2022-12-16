@@ -7,7 +7,7 @@ export default async function handler(req, res) {
       'Authorization' : 'Bearer ' + process.env.VUE_APP_MAIL_CHIMP_BEARER
     }
   })
-  .then(result => result.data)
+  .then(result => result.data.data.members)
   .finally(()=> console.log('sono uscito da mailchimp'))
 
   return res.send(mailchimp);
