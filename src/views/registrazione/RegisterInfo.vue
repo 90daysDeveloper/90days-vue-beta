@@ -73,8 +73,7 @@ const form = {
   email: authStore.userData.email,
   livello: 1,
   nascita: nascita.value,
-	codice: codice.value,
-	mailchimp: mailchimp.value
+	codice: codice.value
 }
 
 function getMailChimp() {
@@ -91,7 +90,8 @@ getMailChimp()
 async function newProfile() {
   loading.value = true
   form.codice = form.codice.toLowerCase()
-  form.codice = form.codice.toUpperCase()
+	form.codice = form.codice.toUpperCase()
+	form.mailchimp = mailchimp.value
 
   API_90D.creaUtenti(form)
     .then(res => res.send(console.log('User created')))
