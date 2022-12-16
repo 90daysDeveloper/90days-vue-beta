@@ -1,12 +1,11 @@
 import axios from 'axios'
 export default async function putInfo(req, res) {
-	const fields = {
+	const mailchimp = await axios.put(process.env.VUE_APP_MAIL_CHIMP_API_BASE + 'lists/' + process.env.VUE_APP_MAIL_CHIMP_LIST + 'members/' + req.query.id, {
 		"merge_fields": {
 			"FNAME": req.query.fname,
 			"LNAME": req.query.lname
 		}
-	}
-	const mailchimp = await axios.put(process.env.VUE_APP_MAIL_CHIMP_API_BASE + 'lists/' + process.env.VUE_APP_MAIL_CHIMP_LIST + 'members/' + req.query.id, fields, {
+	}, {
     headers:{
       'Authorization' : 'Bearer ' + process.env.VUE_APP_MAIL_CHIMP_BEARER
     }
