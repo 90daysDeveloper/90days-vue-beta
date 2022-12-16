@@ -6,11 +6,6 @@
         <div class="text-center">
           <h1 class="mb-3">😍 {{ authStore.DirectusUser.nome }} sei ufficialmente dentro!</h1>
           <img src="../../../public/img/Thanks.gif" />
-          <!-- <hr>
-					<h3 class="mt-3">Completa il tuo profilo in tutte le sue parti!</h3>
-					<hr>
-					<h5>Se non concludi la registrazione non possiamo inserirti nel MasterGroup.</h5>
-          <hr> -->
           <hr>
           <button class="btn btn-primary btn-lg" @click="updateProfile()">Completa il tuo profilo per iniziare</button>
           <hr>
@@ -47,6 +42,7 @@ import { useAuthStore } from '@/stores/auth'
 
 const authStore = useAuthStore()
 const user = {
+	"id": authStore.DirectusUser.id,
   "date_updated": new Date(),
   "payment": true
 }
@@ -64,12 +60,4 @@ updateUser()
 function updateProfile() {
   router.push('/register-target')
 }
-
-// function getName() {
-//   var emailItem = localStorage.getItem('userLogin90days')
-//   if (emailItem) {
-//     router.push('/')
-//   }
-// }
-// getName()
 </script>
