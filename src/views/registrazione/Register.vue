@@ -43,6 +43,7 @@
 import { ref, computed } from 'vue'
 import { useAuthStore } from '@/stores/auth'
 import router from '@/router'
+import axios from 'axios'
 
 const authStore = useAuthStore()
 
@@ -50,6 +51,8 @@ const email = ref()
 const password = ref('')
 const confermapassword = ref()
 const rimaniConnesso = ref()
+
+const loading = ref(false)
 
 const loadingLogin = computed(() => {
   return authStore.loadingAuth ? true : false
@@ -70,20 +73,20 @@ async function handleSubmit() {
 		return alert('Password should have more then 8 characters')
 	}
 	await authStore.registerUser(email.value, password.value)
+	postMember()
 	router.push('/register-info')
+}
+
+function postMember() {
+	loading.value = true
+	axios.post('https://90days-vue-beta.vercel.app/api/posttag?email=' + email.value,)
+		.then(res => console.log(res))
+		.finally(loading.value = false)
 }
 
 const visible = ref(false)
 function toggleVisible() {
   visible.value = !visible.value
 }
-
-// function getName() {
-// 	var emailItem = localStorage.getItem('userLogin90days')
-// 	if (emailItem) {
-// 		router.push('/')
-// 	}
-// }
-// getName()
 
 </script>
