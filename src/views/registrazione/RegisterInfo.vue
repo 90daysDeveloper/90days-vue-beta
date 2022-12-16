@@ -71,22 +71,25 @@ const form = {
 }
 
 function getMailChimp() {
-	console.log('sei entrato in mailchimp')
 	loading.value = true
 	axios.get('https://90days-vue-beta.vercel.app/api/getid?email=' + authStore.userData.email,)
 	.then(res => mailchimp.value = res)
 	.then(res => mailchimp.value = res.data.exact_matches.members[0].id)
-		.then(console.log('stai uscendo da mailchimp'))
 	.finally(loading.value = false)
 }
 getMailChimp()
 
 function putMailChimp() {
-	console.log('stai modificando mailchimp')
 	loading.value = true
 	axios.put('https://90days-vue-beta.vercel.app/api/putinfo?fname=' + form.nome + '&lname=' + form.cognome + '&id=' + mailchimp.value,)
 		.then(res => console.log(res))
-		.then(console.log('hai modificato mailchimp'))
+		.finally(loading.value = false)
+}
+
+function postTag() {
+	loading.value = true
+	axios.put('https://90days-vue-beta.vercel.app/api/posttag?id=' + mailchimp.value + '&tag=subscribed',)
+		.then(res => console.log(res))
 		.finally(loading.value = false)
 }
 
@@ -96,6 +99,7 @@ async function newProfile() {
 	form.codice = form.codice.toUpperCase()
 	form.mailchimp = mailchimp.value
 	putMailChimp()
+	postTag()
 
   API_90D.creaUtenti(form)
     .then(res => res.send(console.log('User created')))
