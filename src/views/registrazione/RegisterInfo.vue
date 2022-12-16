@@ -26,7 +26,7 @@
         </div>
         <em class="small-text mt-2">* Campi richiesti</em>
         <div class="mt-4">
-          <button class="btn btn-primary" type="submit" @click=" getMailChimp">Crea il mio profilo</button>
+          <button class="btn btn-primary" type="submit" @click="newProfile" :disabled="loading">Crea il mio profilo</button>
         </div>
 
         <div class="counter-step mt-3">
@@ -73,10 +73,12 @@ const form = {
 }
 
 function getMailChimp() {
+	loading.value = true
 	axios.get('https://90days-vue-beta.vercel.app/api/getid?email=' + authStore.userData.email,)
 		.then(res => mailchimp.value = res.data.exact_matches.members[0].id)
-		.finally(() => newProfile())
+		.finally(loading.value = false)
 }
+getMailChimp()
 
 async function newProfile() {
   loading.value = true
