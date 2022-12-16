@@ -1,7 +1,7 @@
 import axios from 'axios'
-export default async function handler(req, res, email) {
+export default async function handler(req, res) {
   console.log('sto chiamando mail chimp')
-	const mailchimp = await axios.get(process.env.VUE_APP_MAIL_CHIMP_API_BASE + 'search-members?query=' + email + '&list_id=' + process.env.VUE_APP_MAIL_CHIMP_LIST, {
+	const mailchimp = await axios.get(process.env.VUE_APP_MAIL_CHIMP_API_BASE + 'search-members?query=' + req.query.email + '&list_id=' + process.env.VUE_APP_MAIL_CHIMP_LIST, {
     headers:{
       'Authorization' : 'Bearer ' + process.env.VUE_APP_MAIL_CHIMP_BEARER
     }
