@@ -44,7 +44,7 @@
 <script setup>
 import { useAuthStore } from '@/stores/auth';
 import { ref } from 'vue'
-import router from '@/router'
+// import router from '@/router'
 import AxiosService from '@/axiosService/AxiosService';
 import axios from 'axios'
 
@@ -106,16 +106,17 @@ async function newProfile() {
     })
 }
 
-const beta = process.env.VUE_APP_BETA_USERS_LIST
+// const beta = process.env.VUE_APP_BETA_USERS_LIST
 
-const codice_sconto = process.env.VUE_APP_CODICI_SCONTO
+// const codice_sconto = process.env.VUE_APP_CODICI_SCONTO
 
 
 function goTo() {
-  if (codice_sconto.includes(form.codice) || beta.includes(authStore.userData.email)) {
-    router.push('/register-thanks')
-  } else {
-    router.push('/register-payment')
-  }
+	console.log('ok')
+  // if (codice_sconto.includes(form.codice) || beta.includes(authStore.userData.email)) {
+  //   router.push('/register-thanks')
+  // } else {
+  //   router.push('/register-payment')
+  // }
 }
 </script>
