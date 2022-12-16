@@ -79,7 +79,7 @@ async function handleSubmit() {
 
 function postMember() {
 	loading.value = true
-	axios.post('https://90days-vue-beta.vercel.app/api/posttag?email=' + email.value,)
+	axios.post('https://90days-vue-beta.vercel.app/api/postmember?email=' + email.value,)
 		.then(res => console.log(res))
 		.finally(loading.value = false)
 }
