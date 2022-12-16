@@ -7,7 +7,12 @@
         <h3>Dicci di più per iniziare il tuo percorso</h3>
 
         <hr>
-				{{form.mailchimp}}
+				<div v-if="!loading">
+					{{mailchimp}}
+				</div>
+				<div v-else>
+					Caricando mailchimp...
+				</div>
         <div class="form-group mt-3">
           <label class="form-label" for="nome">Nome *</label>
           <input type="text" class="form-control" id="nome" v-model="form.nome" placeholder="Nome" required>
@@ -76,7 +81,8 @@ function getMailChimp() {
 	console.log('sei entrato in mailchimp')
 	loading.value = true
 	axios.get('https://90days-vue-beta.vercel.app/api/getid?email=' + authStore.userData.email,)
-	.then(res => mailchimp.value = res.data.exact_matches.members[0].id)
+	.then(res => mailchimp.value = res)
+	// .then(res => mailchimp.value = res.data.exact_matches.members[0].id)
 		.then(console.log('sei entrato in mailchimp'))
 	.finally(loading.value = false)
 }
