@@ -81,9 +81,9 @@ function getMailChimp() {
 	console.log('sei entrato in mailchimp')
 	loading.value = true
 	axios.get('https://90days-vue-beta.vercel.app/api/getid?email=' + authStore.userData.email,)
-	.then(res => mailchimp.value = res)
-	// .then(res => mailchimp.value = res.data.exact_matches.members[0].id)
-		.then(console.log('sei entrato in mailchimp'))
+	// .then(res => mailchimp.value = res)
+	.then(res => mailchimp.value = res.data.exact_matches.members[0].id)
+		.then(console.log('stai uscendo da mailchimp'))
 	.finally(loading.value = false)
 }
 getMailChimp()
