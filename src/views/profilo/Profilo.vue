@@ -5,6 +5,7 @@
     <Canny></Canny>
   </div>
   <Button label="mailchimp" @click="getMailChimp"></Button>
+	{{people}}
   <Informazioni :id_utente="route.params.idUtente"></Informazioni>
   <Obiettivo :id_utente="route.params.idUtente"></Obiettivo>
   <Progressi v-if="authStore.DirectusUser.gruppo !== null" :id_utente="route.params.idUtente"></Progressi>
