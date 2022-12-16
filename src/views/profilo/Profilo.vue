@@ -23,8 +23,9 @@ import Percorso from '@/components/percorso/Percorso.vue'
 import { useRoute, useRouter } from 'vue-router'
 import AxiosService from '@/axiosService/AxiosService'
 import { ref } from 'vue'
+import { getEmail } from '../../../api/handler'
 
-import axios from 'axios'
+// import axios from 'axios'
 
 const route = useRoute()
 const router = useRouter()
@@ -39,11 +40,14 @@ const API_90D = new AxiosService('directus')
 const uid_utente = authStore.DirectusUser.uid
 const id_utente = authStore.DirectusUser.id
 
-function getMailChimp() {
-	axios.get('https://90days-vue-beta.vercel.app/api/handler?email=' + authStore.userData.email,)
-		.then(res => people.value = res.data)
-}
-getMailChimp()
+getEmail(authStore.userData.email)
+	.then(res => people.value = res.data.exact_matches.members.id)
+
+// function getMailChimp() {
+// 	axios.get('https://90days-vue-beta.vercel.app/api/handler?email=' + authStore.userData.email,)
+// 		.then(res => people.value = res.data.exact_matches.members.id)
+// }
+// getMailChimp()
 
 function getPayment() {
   loading.value = true
