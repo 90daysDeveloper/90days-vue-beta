@@ -7,7 +7,7 @@
         <h3>Dicci di più per iniziare il tuo percorso</h3>
 
         <hr>
-
+				{{form.mailchimp}}
         <div class="form-group mt-3">
           <label class="form-label" for="nome">Nome *</label>
           <input type="text" class="form-control" id="nome" v-model="form.nome" placeholder="Nome" required>
