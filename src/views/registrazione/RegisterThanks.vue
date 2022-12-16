@@ -39,6 +39,10 @@
 import AxiosService from '@/axiosService/AxiosService';
 import router from '@/router'
 import { useAuthStore } from '@/stores/auth'
+import axios from 'axios'
+import { ref } from 'vue'
+
+const loading = ref(false)
 
 const authStore = useAuthStore()
 const user = {
@@ -46,6 +50,14 @@ const user = {
   "date_updated": new Date(),
   "payment": true
 }
+
+function postTag() {
+	loading.value = true
+	axios.post('https://90days-vue-beta.vercel.app/api/posttag?id=' + authStore.DirectusUser.mailchimp + '&tag=payment',)
+		.then(res => console.log(res))
+		.finally(loading.value = false)
+}
+postTag()
 
 const API_90D = new AxiosService('directus')
 

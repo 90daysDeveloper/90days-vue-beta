@@ -88,7 +88,7 @@ function putMailChimp() {
 
 function postTag() {
 	loading.value = true
-	axios.put('https://90days-vue-beta.vercel.app/api/posttag?id=' + mailchimp.value + '&tag=subscribed',)
+	axios.post('https://90days-vue-beta.vercel.app/api/posttag?id=' + mailchimp.value + '&tag=subscribed',)
 		.then(res => console.log(res))
 		.finally(loading.value = false)
 }
