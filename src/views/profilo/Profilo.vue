@@ -4,7 +4,6 @@
     <RecapWeek></RecapWeek>
     <Canny></Canny>
   </div>
-  <Button label="mailchimp" @click="getMailChimp"></Button>
 	{{people}}
   <Informazioni :id_utente="route.params.idUtente"></Informazioni>
   <Obiettivo :id_utente="route.params.idUtente"></Obiettivo>
@@ -41,10 +40,10 @@ const uid_utente = authStore.DirectusUser.uid
 const id_utente = authStore.DirectusUser.id
 
 function getMailChimp() {
-	axios.get('https://90days-vue-beta.vercel.app/api/handler',)
+	axios.get('https://90days-vue-beta.vercel.app/api/handler?email=' + authStore.userData.email,)
 		.then(res => people.value = res.data.members)
 }
-
+getMailChimp()
 
 function getPayment() {
   loading.value = true
@@ -104,7 +103,4 @@ const getOrari = () => {
     })
 }
 getPayment()
-
-
-API_90D.leggiById('Utenti', '2').then(res => console.log('leggi utenti by id 2 ', res))
 </script>
