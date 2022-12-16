@@ -1,5 +1,5 @@
 import axios from 'axios'
-export default async function posttagsubscribed(req, res) {
+export default async function posttag(req, res) {
 	const mailchimp = await axios.put(process.env.VUE_APP_MAIL_CHIMP_API_BASE + 'lists/' + process.env.VUE_APP_MAIL_CHIMP_LIST + '/members/' + req.query.id + '/tags', {
 		"tags": [
 			{
