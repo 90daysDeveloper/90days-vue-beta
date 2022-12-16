@@ -7,12 +7,6 @@
         <h3>Dicci di più per iniziare il tuo percorso</h3>
 
         <hr>
-				<div v-if="!loading">
-					{{mailchimp}}
-				</div>
-				<div v-else>
-					Caricando mailchimp...
-				</div>
         <div class="form-group mt-3">
           <label class="form-label" for="nome">Nome *</label>
           <input type="text" class="form-control" id="nome" v-model="form.nome" placeholder="Nome" required>
@@ -80,18 +74,28 @@ function getMailChimp() {
 	console.log('sei entrato in mailchimp')
 	loading.value = true
 	axios.get('https://90days-vue-beta.vercel.app/api/getid?email=' + authStore.userData.email,)
-	// .then(res => mailchimp.value = res)
+	.then(res => mailchimp.value = res)
 	.then(res => mailchimp.value = res.data.exact_matches.members[0].id)
 		.then(console.log('stai uscendo da mailchimp'))
 	.finally(loading.value = false)
 }
 getMailChimp()
 
+function putMailChimp() {
+	console.log('stai modificando mailchimp')
+	loading.value = true
+	axios.put('https://90days-vue-beta.vercel.app/api/putinfo?fname=' + authStore.DirectusUser.nome + '?lname=' + authStore.DirectusUser.cognome + '?id=' + mailchimp.value,)
+		.then(res => console.log(res))
+		.then(console.log('hai modificato mailchimp'))
+		.finally(loading.value = false)
+}
+
 async function newProfile() {
   loading.value = true
   form.codice = form.codice.toLowerCase()
 	form.codice = form.codice.toUpperCase()
 	form.mailchimp = mailchimp.value
+	putMailChimp()
 
   API_90D.creaUtenti(form)
     .then(res => res.send(console.log('User created')))
