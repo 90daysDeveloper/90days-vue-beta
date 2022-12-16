@@ -84,7 +84,7 @@ getMailChimp()
 function putMailChimp() {
 	console.log('stai modificando mailchimp')
 	loading.value = true
-	axios.put('https://90days-vue-beta.vercel.app/api/putinfo?fname=' + authStore.DirectusUser.nome + '?lname=' + authStore.DirectusUser.cognome + '?id=' + mailchimp.value,)
+	axios.put('https://90days-vue-beta.vercel.app/api/putinfo?fname=' + nome.value + '?lname=' + cognome.value + '?id=' + mailchimp.value,)
 		.then(res => console.log(res))
 		.then(console.log('hai modificato mailchimp'))
 		.finally(loading.value = false)
