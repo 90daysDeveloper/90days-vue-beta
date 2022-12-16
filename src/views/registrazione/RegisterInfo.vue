@@ -26,7 +26,7 @@
         </div>
         <em class="small-text mt-2">* Campi richiesti</em>
         <div class="mt-4">
-          <button class="btn btn-primary" type="submit" @click="newProfile()">Crea il mio profilo</button>
+          <button class="btn btn-primary" type="submit" @click=" getMailChimp">Crea il mio profilo</button>
         </div>
 
         <div class="counter-step mt-3">
@@ -47,6 +47,8 @@ import { useAuthStore } from '@/stores/auth';
 import { ref } from 'vue'
 import router from '@/router'
 import AxiosService from '@/axiosService/AxiosService';
+import axios from 'axios'
+
 const authStore = useAuthStore();
 
 const API_90D = new AxiosService('directus')
@@ -57,6 +59,7 @@ const nome = ref('')
 const cognome = ref('')
 const nascita = ref('')
 const codice = ref('')
+const mailchimp = ref([])
 
 const form = {
   uid: authStore.userData.uid,
@@ -65,7 +68,14 @@ const form = {
   email: authStore.userData.email,
   livello: 1,
   nascita: nascita.value,
-  codice: codice.value
+	codice: codice.value,
+	mailchimp: mailchimp.value
+}
+
+function getMailChimp() {
+	axios.get('https://90days-vue-beta.vercel.app/api/getid?email=' + authStore.userData.email,)
+		.then(res => mailchimp.value = res.data.exact_matches.members[0].id)
+		.finally(() => newProfile())
 }
 
 async function newProfile() {
@@ -81,14 +91,6 @@ async function newProfile() {
       goTo()
     })
 }
-
-// function getName() {
-// 	var emailItem = localStorage.getItem('userLogin90days')
-//   if (emailItem) {
-//     router.push('/')
-//   }
-// }
-// getName()
 
 const beta = process.env.VUE_APP_BETA_USERS_LIST
 
