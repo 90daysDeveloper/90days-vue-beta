@@ -108,10 +108,11 @@ export const useAuthStore = defineStore("authStore", {
       });
     },
     async getDirectusUser() {
+      console.log('GET get directus user')
       await axios
         .get(
-          "https://bm5f9a2z.directus.app/items/Utenti?filter[uid]=" +
-            this.userData.uid,
+          "https://bm5f9a2z.directus.app/items/Utenti?filter[email]=" +
+            this.userData.email,
           {
             headers: {
               Authorization: "Bearer xZFbgbEnVxrXlHxRT2ZM1LGNIe8xigDV",
@@ -119,9 +120,10 @@ export const useAuthStore = defineStore("authStore", {
           }
         )
         .then((res) => {
+          console.log('RES get directus user', res)
           this.DirectusUser = res.data.data[0];
         })
-        .catch((err) => console.error(err));
+        .catch((err) => console.error('CATCH get directus user', err));
     },
     async resetEmail(email) {
       try {

@@ -7,6 +7,10 @@ const routes = [
     component: () => import("@/views/login/Login.vue"),
   },
   {
+    path: '/perform-logout',
+    component: () => import('@/views/account/Logout.vue')
+  },
+  {
     path: "/reset",
     component: () => import("@/views/login/ResetPassword.vue"),
   },
