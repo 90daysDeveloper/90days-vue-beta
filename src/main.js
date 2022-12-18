@@ -6,8 +6,6 @@ import App from "./App.vue";
 import VueSocialSharing from "vue-social-sharing";
 // import axios from 'axios'
 
-import PrimeVueConfigurator from "./utils/PrimeVueConfigurator";
-
 import "./assets/scss/main.scss";
 import "../node_modules/chart.js/dist/chart";
 
@@ -23,8 +21,6 @@ const app = createApp(App);
 // axios.defaults.headers.common[
 //   "Authorization"
 // ] = `Bearer ${process.env.VUE_APP_BEARER_DIRECTUS}`;
-
-PrimeVueConfigurator.init(app);
 
 app.use(router);
 app.use(pinia);
