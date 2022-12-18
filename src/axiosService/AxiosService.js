@@ -32,10 +32,10 @@ export default class AxiosService {
   }
 
   // MALLEABILE -----------------------------------------------------
-  leggi(nomeFiltro, valoreFiltro) {
+  leggi(nomeTabella, nomeFiltro, valoreFiltro) {
     if (nomeFiltro && valoreFiltro) {
       return axios
-        .get( this.url + "?filter[" + nomeFiltro + "]=" + valoreFiltro, this.header)
+        .get( this.url + nomeTabella + "?filter[" + nomeFiltro + "]=" + valoreFiltro, this.header)
         .then((res) => res.data);
     } else {
       return axios.get( this.url ).then((res) => res.data);
