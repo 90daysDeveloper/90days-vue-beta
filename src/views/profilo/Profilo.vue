@@ -4,7 +4,6 @@
     <RecapWeek></RecapWeek>
     <Canny></Canny>
   </div>
-	{{people}}
   <Informazioni :id_utente="route.params.idUtente"></Informazioni>
   <Obiettivo :id_utente="route.params.idUtente"></Obiettivo>
   <Progressi v-if="authStore.DirectusUser.gruppo !== null" :id_utente="route.params.idUtente"></Progressi>
@@ -31,7 +30,6 @@ const loading = ref(false)
 const obiettivo = ref([])
 const orari = ref([])
 const helper = ref([])
-const people = ref([])
 
 const API_90D = new AxiosService('directus')
 const uid_utente = authStore.DirectusUser.uid
