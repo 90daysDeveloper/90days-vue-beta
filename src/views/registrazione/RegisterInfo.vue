@@ -86,10 +86,6 @@ function createNewId() {
 function getMailChimp() {
   loading.value = true
   axios.get('https://90days-vue-beta.vercel.app/api/getid?email=' + authStore.userData.email,)
-    .then(res => {
-      console.log("🚀 ~ file: RegisterInfo.vue:95 ~ getMailChimp ~ res", res)
-      mailchimp.value = res
-    })
     .then(res => mailchimp.value = res.data.exact_matches.members[0].id)
     .finally(loading.value = false)
 }
