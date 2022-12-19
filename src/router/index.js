@@ -19,6 +19,10 @@ const routes = [
     component: () => import("@/views/registrazione/Register.vue"),
   },
   {
+    path: '/full-loading',
+    component: () => import('@/views/Loading.vue')
+  },
+  {
     path: "/share/:idUtente",
     name: "sharePage",
     component: () => import("@/views/share/Share.vue"),

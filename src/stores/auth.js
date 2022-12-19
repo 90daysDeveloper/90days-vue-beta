@@ -111,11 +111,11 @@ export const useAuthStore = defineStore("authStore", {
       console.log('GET get directus user')
       await axios
         .get(
-          "https://bm5f9a2z.directus.app/items/Utenti?filter[email]=" +
+           process.env.VUE_APP_API_BASE + "Utenti?filter[email]=" +
             this.userData.email,
           {
             headers: {
-              Authorization: "Bearer xZFbgbEnVxrXlHxRT2ZM1LGNIe8xigDV",
+              Authorization: "Bearer "+process.env.VUE_APP_BEARER_DIRECTUS,
             },
           }
         )

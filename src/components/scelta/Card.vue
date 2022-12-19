@@ -77,7 +77,7 @@ async function getObiettivo(utente) {
   const API_90D = new AxiosService('directus')
   API_90D.leggiObiettivi('user_id', utente.id)
     .then(res => {
-      return res.data[0]
+      return res.data[0].categoria
     })
 }
 
@@ -86,6 +86,7 @@ async function getHelper(utente) {
   const API_90D = new AxiosService('directus')
   API_90D.leggiHelper('user_id', utente.id)
     .then(res => {
+
       return res.data[0]
     })
 }
