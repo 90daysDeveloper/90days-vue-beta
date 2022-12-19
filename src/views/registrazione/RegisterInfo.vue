@@ -25,7 +25,8 @@
         </div>
         <em class="small-text mt-2">* Campi richiesti</em>
         <div class="mt-4">
-          <button class="btn btn-primary" type="submit" @click="newProfile" :disabled="loading">Crea il mio profilo</button>
+          <button class="btn btn-primary" type="submit" @click="newProfile" :disabled="loading">Crea il mio
+            profilo</button>
         </div>
 
         <div class="counter-step mt-3">
@@ -60,48 +61,64 @@ const nascita = ref('')
 const codice = ref('')
 const mailchimp = ref([])
 
-const form = {
+const form = ref({
+  id: 0,
   uid: authStore.userData.uid,
   nome: nome.value,
   cognome: cognome.value,
   email: authStore.userData.email,
   livello: 1,
   nascita: nascita.value,
-	codice: codice.value
+  codice: codice.value
+})
+
+function createNewId() {
+  const API_90D = new AxiosService('directus')
+
+  API_90D.leggiUtenti()
+    .then(res => {
+      console.log(res.data[res.data.length - 1].id)
+      console.log(res.data[res.data.length - 1].id + 1)
+      form.value.id = res.data[res.data.length - 1].id + 1
+    })
 }
 
 function getMailChimp() {
-	loading.value = true
-	axios.get('https://90days-vue-beta.vercel.app/api/getid?email=' + authStore.userData.email,)
-	.then(res => mailchimp.value = res)
-	.then(res => mailchimp.value = res.data.exact_matches.members[0].id)
-	.finally(loading.value = false)
+  loading.value = true
+  axios.get('https://90days-vue-beta.vercel.app/api/getid?email=' + authStore.userData.email,)
+    .then(res => {
+      console.log("🚀 ~ file: RegisterInfo.vue:95 ~ getMailChimp ~ res", res)
+      mailchimp.value = res
+    })
+    .then(res => mailchimp.value = res.data.exact_matches.members[0].id)
+    .finally(loading.value = false)
 }
+
 getMailChimp()
 
 function putMailChimp() {
-	loading.value = true
-	axios.put('https://90days-vue-beta.vercel.app/api/putinfo?fname=' + form.nome + '&lname=' + form.cognome + '&id=' + mailchimp.value,)
-		.then(res => console.log(res))
-		.finally(loading.value = false)
+  loading.value = true
+  axios.put('https://90days-vue-beta.vercel.app/api/putinfo?fname=' + form.value.nome + '&lname=' + form.value.cognome + '&id=' + mailchimp.value,)
+    .then(res => console.log(res))
+    .finally(loading.value = false)
 }
 
 function postTag() {
-	loading.value = true
-	axios.post('https://90days-vue-beta.vercel.app/api/posttag?id=' + mailchimp.value + '&tag=subscribed',)
-		.then(res => console.log(res))
-		.finally(loading.value = false)
+  loading.value = true
+  axios.post('https://90days-vue-beta.vercel.app/api/posttag?id=' + mailchimp.value + '&tag=subscribed',)
+    .then(res => console.log(res))
+    .finally(loading.value = false)
 }
 
 async function newProfile() {
   loading.value = true
-  form.codice = form.codice.toLowerCase()
-	form.codice = form.codice.toUpperCase()
-	form.mailchimp = mailchimp.value
-	putMailChimp()
-	postTag()
+  form.value.codice = form.value.codice.toLowerCase()
+  form.value.codice = form.value.codice.toUpperCase()
+  form.value.mailchimp = mailchimp.value
+  putMailChimp()
+  postTag()
 
-  API_90D.creaUtenti(form)
+  API_90D.creaUtenti(form.value)
     .then(res => res.send(console.log('User created')))
     .catch(err => console.error(err))
     .finally(() => {
@@ -116,10 +133,12 @@ const codice_sconto = process.env.VUE_APP_CODICI_SCONTO
 
 
 function goTo() {
-  if (codice_sconto.includes(form.codice) || beta.includes(authStore.userData.email)) {
+  if (codice_sconto.includes(form.value.codice) || beta.includes(authStore.userData.email)) {
     router.push('/register-thanks')
   } else {
     router.push('/register-payment')
   }
 }
+
+createNewId()
 </script>

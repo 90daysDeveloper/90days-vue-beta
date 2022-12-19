@@ -60,10 +60,10 @@ const API_90D = new AxiosService('directus')
 
 const loading = ref(false)
 
-const studio = ref('')
-const fitness_alimentazione = ref('')
-const benessere_psicologico = ref('')
-const lavoro = ref('')
+const studio = ref(null)
+const fitness_alimentazione = ref(null)
+const benessere_psicologico = ref(null)
+const lavoro = ref(null)
 // const router = useRouter()
 const form = {
   user_uid: authStore.DirectusUser.uid,

@@ -67,10 +67,10 @@ const API_90D = new AxiosService('directus')
 const id_tappa = route.params.idTappa
 
 const form = ref({
-  poco: '',
-  nulla: '',
-  molto: '',
-  feedback: '',
+  poco: null,
+  nulla: null,
+  molto: null,
+  feedback: null,
   settimana: null,
   user_uid: null,
   user_id: null

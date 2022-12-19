@@ -5,7 +5,7 @@ import LottieAnimation from "lottie-web-vue";
 import App from "./App.vue";
 import VueSocialSharing from "vue-social-sharing";
 // import axios from 'axios'
-
+import PrimeVueConifg from "./utils/PrimeVueConifg";
 import "./assets/scss/main.scss";
 import "../node_modules/chart.js/dist/chart";
 
@@ -17,6 +17,7 @@ import router from "./router";
 const pinia = createPinia();
 const app = createApp(App);
 
+PrimeVueConifg.init(app)
 // axios.defaults.baseURL = process.env.VUE_APP_API_BASE;
 // axios.defaults.headers.common[
 //   "Authorization"

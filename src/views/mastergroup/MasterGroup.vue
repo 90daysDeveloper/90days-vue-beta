@@ -3,12 +3,12 @@
   <p v-if="loading">Caricamento...</p>
   <div v-else>
     <div v-if="authStore.DirectusUser.gruppo">
-			<div v-if="authStore.DirectusUser.primo_appuntamento == false">
-				<PrimoAppuntamento></PrimoAppuntamento>
-			</div>
-			<div v-else>
-				<Chat></Chat>
-			</div>
+      <div v-if="authStore.DirectusUser.primo_appuntamento == false">
+        <PrimoAppuntamento></PrimoAppuntamento>
+      </div>
+      <div v-else>
+        <Chat></Chat>
+      </div>
     </div>
     <div v-else>
       <WaitingList></WaitingList>

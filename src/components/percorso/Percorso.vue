@@ -107,8 +107,8 @@ async function getGroupStartDate() {
   loading.value = true
   API_90D.leggiGruppi('nome', nome_gruppo)
     .then(res => {
-      if (res.data.data[0]) {
-        let created = new Date(res.data.data[0].start).getTime()
+      if (res.data[0]) {
+        let created = new Date(res.data[0].start).getTime()
         let today = new Date().getTime()
         let progress = Math.floor((today - created) / (1000 * 60 * 60 * 24))
         if (progress < 7) currentWeek.value = 1

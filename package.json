@@ -18,6 +18,7 @@
     "pinia": "^2.0.22",
     "primeflex": "^3.3.0",
     "primeicons": "^5.0.0",
+    "primevue": "^3.21.0",
     "register-service-worker": "^1.7.2",
     "v-offline": "^3.3.0",
     "vue": "^3.2.13",

@@ -63,10 +63,10 @@ const API_90D = new AxiosService('directus')
 
 const loading = ref(false)
 // const router = useRouter()
-const orario_1 = ref('')
-const orario_2 = ref('')
-const orario_3 = ref('')
-const orario_4 = ref('')
+const orario_1 = ref(null)
+const orario_2 = ref(null)
+const orario_3 = ref(null)
+const orario_4 = ref(null)
 
 const form = {
   user_uid: authStore.DirectusUser.uid,

@@ -52,6 +52,11 @@ async function getGroupStartDate() {
     .catch(err => console.error(err))
     .finally(() => {
       loading.value = false
+
+      for (let i = 0; i <= data.value; i++) {
+        getPercorso(i)
+      }
+
       getPercorso(data.value)
     })
 }
@@ -59,11 +64,18 @@ getGroupStartDate()
 
 async function getPercorso(number) {
   loading.value = true
-  API_90D.leggiPercorso('giorno', number)
+  API_90D.leggiPercorso('giorno', number.toString())
     .then(res => {
-      percorso.value = res.data
-      console.log(res)
-      console.log(percorso.value)
+      if (res.data[0]) {
+
+        res.data.forEach(element => {
+          percorso.value.push(element)
+        })
+
+
+        percorso.value.sort((a, b) => (a.settimana > b.settimana) ? 1 : -1)
+
+      }
     })
     .catch(err => console.error(err))
     .finally(() => loading.value = false)

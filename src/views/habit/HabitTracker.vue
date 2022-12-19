@@ -32,7 +32,7 @@ const loading = ref(false)
 const utente = ref([])
 
 const API_90D = new AxiosService('directus')
-const id_utente = authStore.DirectusUser.is
+const id_utente = authStore.DirectusUser.id
 
 
 async function getUtente() {

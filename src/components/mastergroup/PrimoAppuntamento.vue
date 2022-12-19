@@ -54,17 +54,18 @@ const nome_gruppo = authStore.DirectusUser.gruppo
 const loading = ref(false)
 const gruppo = ref([])
 const user = {
+  "id": authStore.DirectusUser.id,
   "date_updated": new Date(),
   "primo_appuntamento": true
 }
 
 const form = ref({
-  martedi: '',
-  mercoledi: '',
-  giovedi: '',
-  venerdi: '',
-  sabato: '',
-  domenica: '',
+  martedi: null,
+  mercoledi: null,
+  giovedi: null,
+  venerdi: null,
+  sabato: null,
+  domenica: null,
   gruppo: null,
   user_uid: null
 })
@@ -84,11 +85,9 @@ async function registerAppointment() {
   loading.value = true
   API_90D.creaPrimoAppuntamento(form.value)
     .then(res => (console.log('appuntamento: ', res)))
-    .then(updateUser())
     .catch(err => console.error('errore: ', err))
     .finally(() => {
-      loading.value = false
-      location.reload()
+      updateUser()
     })
 }
 
@@ -99,6 +98,7 @@ function updateUser() {
     .catch(err => console.error(err))
     .finally(() => {
       loading.value = false
+      location.reload()
     })
 }
 
