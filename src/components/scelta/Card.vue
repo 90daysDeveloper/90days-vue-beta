@@ -73,7 +73,6 @@ function getUsers() {
 }
 
 async function getObiettivo(utente) {
-  console.log("🚀 ~ file: Card.vue:91 ~ getObiettivo ~ idUtente", utente)
   const API_90D = new AxiosService('directus')
   API_90D.leggiObiettivi('user_id', utente.id)
     .then(res => {
@@ -82,7 +81,6 @@ async function getObiettivo(utente) {
 }
 
 async function getHelper(utente) {
-  console.log("🚀 ~ file: Card.vue:100 ~ getHelper ~ idUtente", utente)
   const API_90D = new AxiosService('directus')
   API_90D.leggiHelper('user_id', utente.id)
     .then(res => {

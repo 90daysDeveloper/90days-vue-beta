@@ -47,7 +47,6 @@ function getPayment() {
 }
 
 const getObiettivo = () => {
-  console.log('get obiettivo')
   loading.value = true
   obiettivo.value = null
   API_90D.leggiObiettivi('user_id', id_utente)

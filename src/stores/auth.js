@@ -108,7 +108,6 @@ export const useAuthStore = defineStore("authStore", {
       });
     },
     async getDirectusUser() {
-      console.log('GET get directus user')
       await axios
         .get(
            process.env.VUE_APP_API_BASE + "Utenti?filter[email]=" +
@@ -120,7 +119,6 @@ export const useAuthStore = defineStore("authStore", {
           }
         )
         .then((res) => {
-          console.log('RES get directus user', res)
           this.DirectusUser = res.data.data[0];
         })
         .catch((err) => console.error('CATCH get directus user', err));

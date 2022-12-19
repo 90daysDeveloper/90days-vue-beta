@@ -82,7 +82,6 @@ async function getRecap() {
   API_90D.leggiById('RecapSettimanale', route.params.idRecap)
     .then(res => {
       recap.value = res
-      console.log(recap)
     })
     .catch(err => console.error(err))
     .finally(() => loading.value = false)
@@ -106,7 +105,7 @@ function hiddenDelete() {
 function saveRecap() {
   loading.value = true
   API_90D.modificaRecapSettimanale(recap.value.data)
-    .then(res => console.log(res))
+    .then(res => (res))
     .catch(err => console.error(err))
     .finally(() => {
       loading.value = false
@@ -117,7 +116,7 @@ function saveRecap() {
 function deleteRecap() {
   loading.value = true
   API_90D.eliminaRecapSettimanale(route.params.idRecap)
-    .then(res => res.send(console.log('Page delete')))
+    .then(() => (console.log('Page delete')))
     .catch(err => console.error(err))
     .finally(() => {
       loading.value = false

@@ -74,7 +74,7 @@ async function createTarget() {
   form.value.user_id = authStore.DirectusUser.id
   loading.value = true
   API_90D.creaObiettivi(form.value)
-    .then(res => (console.log('obiettivi, ', res)))
+    .then(res => res)
     .catch(err => console.error('errore, ', err))
     .finally(() => {
       loading.value = false

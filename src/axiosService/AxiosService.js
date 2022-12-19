@@ -11,8 +11,6 @@ export default class AxiosService {
             'Authorization': `Bearer ${process.env.VUE_APP_BEARER_DIRECTUS}`
           }
         }
-
-        console.log("🚀 ~ file: AxiosService.js:15 ~ AxiosService ~ constructor ~ this.url", this.url, this.header)
         break
       case 'mailchimp':
         this.url = process.env.VUE_APP_MAIL_CHIMP_API_BASE 
@@ -21,7 +19,6 @@ export default class AxiosService {
             'Authorization': `Bearer ${process.env.VUE_APP_MAIL_CHIMP_BEARER}`
           }
         }
-        console.log("🚀 ~ file: AxiosService.js:24 ~ AxiosService ~ constructor ~ this.url", this.url, this.header)
         break
     }
   }

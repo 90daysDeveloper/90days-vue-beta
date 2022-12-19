@@ -77,7 +77,7 @@ const form = {
 function newHelper() {
   loading.value = true
   API_90D.creaHelper(form)
-    .then(res => console.log(res))
+    .then(res => (res))
     .catch(err => console.error(err))
     .finally(() => {
       loading.value = false

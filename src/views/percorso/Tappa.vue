@@ -81,7 +81,6 @@ async function gettappa() {
   API_90D.leggiById('Percorso', id_tappa)
     .then(res => {
       tappa.value = res
-      console.log(tappa)
     })
     .catch(err => console.error(err))
     .finally(() => loading.value = false)
@@ -96,7 +95,7 @@ function saveFeedback() {
   loading.value = true
 
   API_90D.creaPercorsoFeedback(form.value)
-    .then(res => console.log(res))
+    .then(res => (res))
     .catch(err => console.error(err))
     .finally(() => {
       loading.value = false

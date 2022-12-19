@@ -61,7 +61,7 @@ function savePost() {
   form.value.user_id = authStore.DirectusUser.id
   loading.value = true
   API_90D.creaDiario(form.value)
-    .then(res => res.send(console.log('Page saved')))
+    .then(() => (('Page saved')))
     .catch(err => console.error(err))
     .finally(() => {
       loading.value = false

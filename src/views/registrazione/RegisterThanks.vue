@@ -46,16 +46,16 @@ const loading = ref(false)
 
 const authStore = useAuthStore()
 const user = {
-	"id": authStore.DirectusUser.id,
+  "id": authStore.DirectusUser.id,
   "date_updated": new Date(),
   "payment": true
 }
 
 function postTag() {
-	loading.value = true
-	axios.post('https://90days-vue-beta.vercel.app/api/posttag?id=' + authStore.DirectusUser.mailchimp + '&tag=payment',)
-		.then(res => console.log(res))
-		.finally(loading.value = false)
+  loading.value = true
+  axios.post('https://90days-vue-beta.vercel.app/api/posttag?id=' + authStore.DirectusUser.mailchimp + '&tag=payment',)
+    .then(res => (res))
+    .finally(loading.value = false)
 }
 postTag()
 
@@ -64,7 +64,7 @@ const API_90D = new AxiosService('directus')
 function updateUser() {
 
   API_90D.modificaUtenti(user)
-    .then(res => console.log(res))
+    .then(res => (res))
     .catch(err => console.error(err))
 }
 updateUser()

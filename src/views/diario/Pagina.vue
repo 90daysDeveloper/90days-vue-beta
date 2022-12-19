@@ -76,7 +76,6 @@ async function getPost() {
   API_90D.leggiById('Diario', id_pagina)
     .then(res => {
       diario.value = res
-      console.log(diario.value)
     })
     .catch(err => console.error(err))
     .finally(() => loading.value = false)
@@ -101,7 +100,7 @@ function savePost() {
   // diario.value.data.date_updated = new Date()
   loading.value = true
   API_90D.modificaDiario(diario.value)
-    .then(res => console.log(res))
+    .then(res => (res))
     .catch(err => console.error(err))
     .finally(() => {
       loading.value = false
@@ -112,7 +111,7 @@ function savePost() {
 function deletePost() {
   loading.value = true
   API_90D.eliminaDiario(id_pagina)
-    .then(res => res.send(console.log('Page delete')))
+    .then(() => (console.log('Page delete')))
     .catch(err => console.error(err))
     .finally(() => {
       loading.value = false

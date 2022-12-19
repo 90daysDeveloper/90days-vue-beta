@@ -58,7 +58,7 @@ function updateObiettivo() {
   obiettivo.value.date_updated = new Date()
   loading.value = true
   API_90D.modificaObiettivi(obiettivo.value)
-    .then(res => console.log(res))
+    .then(res => (res))
     .catch(err => console.error(err))
     .finally(() => {
       loading.value = false

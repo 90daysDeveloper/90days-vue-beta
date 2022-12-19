@@ -64,7 +64,7 @@ function savePost() {
   form.value.settimana = currentWeek.value
   loading.value = true
   API_90D.creaRecapSettimanale(form.value)
-    .then(res => console.log(res))
+    .then(res => (res))
     .catch(err => console.error(err))
     .finally(() => {
       loading.value = false

@@ -77,8 +77,6 @@ function createNewId() {
 
   API_90D.leggiUtenti()
     .then(res => {
-      console.log(res.data[res.data.length - 1].id)
-      console.log(res.data[res.data.length - 1].id + 1)
       form.value.id = res.data[res.data.length - 1].id + 1
     })
 }
@@ -95,14 +93,14 @@ getMailChimp()
 function putMailChimp() {
   loading.value = true
   axios.put('https://90days-vue-beta.vercel.app/api/putinfo?fname=' + form.value.nome + '&lname=' + form.value.cognome + '&id=' + mailchimp.value,)
-    .then(res => console.log(res))
+    .then(res => (res))
     .finally(loading.value = false)
 }
 
 function postTag() {
   loading.value = true
   axios.post('https://90days-vue-beta.vercel.app/api/posttag?id=' + mailchimp.value + '&tag=subscribed',)
-    .then(res => console.log(res))
+    .then(res => (res))
     .finally(loading.value = false)
 }
 
@@ -115,7 +113,7 @@ async function newProfile() {
   postTag()
 
   API_90D.creaUtenti(form.value)
-    .then(res => res.send(console.log('User created')))
+    .then(() => (console.log('User created')))
     .catch(err => console.error(err))
     .finally(() => {
       loading.value = false

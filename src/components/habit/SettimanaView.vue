@@ -80,8 +80,7 @@ function changeDayState(day) {
 function salva() {
   loading.value = true
   API_90D.modificaAbitudini(tmpHabit.value)
-    .then(res => {
-      console.log(res)
+    .then(() => {
       disabilitato.value = true
     })
     .catch(err => console.error(err))

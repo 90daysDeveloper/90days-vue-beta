@@ -54,7 +54,6 @@ async function getGroup() {
   API_90D.leggiGruppi('nome', id_gruppo)
     .then(res => {
       gruppo.value = res.data[0]
-      console.log(gruppo)
     })
     .catch(err => console.error(err))
     .finally(() => loading.value = false)
@@ -80,7 +79,7 @@ function unPatchInfo() {
 async function saveInfo() {
   loading.value = true
   API_90D.modificaGruppi(gruppo.value)
-    .then(res => console.log(res))
+    .then(res => (res))
     .catch(err => console.error(err))
     .finally(() => {
       loading.value = false

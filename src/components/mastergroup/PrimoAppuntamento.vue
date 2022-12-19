@@ -94,7 +94,7 @@ async function registerAppointment() {
 function updateUser() {
   loading.value = true
   API_90D.modificaUtenti(user)
-    .then(res => console.log(res))
+    .then(res => (res))
     .catch(err => console.error(err))
     .finally(() => {
       loading.value = false
